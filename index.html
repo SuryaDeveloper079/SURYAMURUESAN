@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Surya Murugesan - Portfolio</title>
+    <title>Surya Murugesan — Software Engineer · Embedded Systems Engineer</title>
+    <!-- SEO & Social Meta -->
+    <meta name="description" content="Software & Embedded Systems Engineer — Java, Spring Boot, React, Embedded C, STM32, IoT. Portfolio with projects delivering measurable impact." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Surya Murugesan — Portfolio" />
+    <meta property="og:description" content="Software Engineer · Embedded Systems Engineer. Java, Spring Boot, React, Embedded C, STM32, IoT." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Surya Murugesan" />
+    <meta name="twitter:card" content="summary" />
     <link
       rel="icon"
       type="image/x-icon"
@@ -14,6 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <script
       type="text/javascript"
@@ -24,155 +33,478 @@
         emailjs.init("AxALtwSwsIIPWwyZI");
       })();
     </script>
+    <!-- Responsive navigation (hamburger) styles -->
+    <style>
+      /* Desktop: keep inline nav; hide hamburger */
+      .navbar{display:flex;align-items:center}
+      .nav-toggle{display:none !important;background:transparent;border:none;cursor:pointer;padding:8px;margin-left:auto}
+      .nav-toggle span{display:block;width:24px;height:3px;background:#6aa6ff;margin:6px 0;border-radius:3px;transition:transform .18s ease,opacity .18s ease}
+
+      /* Mobile + tablet: show hamburger and present menu as a centered grid (rows) */
+      @media (max-width:1024px){
+        .nav-toggle{display:flex !important;z-index:10005}
+        .navbar{position:relative}
+        /* hide default inline nav on small screens; show when .open */
+        .nav-links{display:none !important}
+    /* show menu as a flex column panel */
+    .navbar.open nav .nav-links{
+      display:flex !important;
+      flex-direction: column;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:12px;
+      background:rgba(13,23,42,0.96);
+      border:1px solid rgba(59,130,246,0.08);
+      box-shadow:0 18px 44px rgba(0,0,0,0.36);
+      position:absolute;
+      top:100%;
+      left:12px;
+      right:12px;
+      margin-top:8px;
+      width:auto;
+      align-items:stretch;
+      z-index:10004;
+    }
+        .nav-links a{display:block;padding:12px 16px;margin:6px 0;border-radius:10px;color:#ffffff;font-weight:800;text-align:center;width:100%;box-sizing:border-box}
+        .navbar.open nav .nav-links a:hover{background:rgba(255,255,255,0.03);transform:none}
+        /* single-column guaranteed on small screens */
+        @media (max-width:520px){ .navbar.open nav .nav-links{flex-direction:column;} }
+        @media (max-width:360px){ .navbar.open nav .nav-links{flex-direction:column;} .nav-links a{width:100%} }
+        /* make the toggle lines bright when open for contrast */
+        .navbar.open .nav-toggle span{background:#ffffff}
+      }
+
+      .navbar.open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+      .navbar.open .nav-toggle span:nth-child(2){opacity:0}
+      .navbar.open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+      /* make button tappable area larger */
+      .nav-toggle{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+    </style>
+  <style>
+      /* Hero image: remove white glow and add orbit icons */
+      .glare{display:none!important}
+      .floating-panel.enhanced-photo{background:transparent!important}
+      .floating-panel{overflow:visible!important;padding:0!important;background:transparent!important}
+      /* make the circular avatar scale with the layout using max-width and aspect-ratio */
+      .photo-wrap{position:relative;max-width:320px;width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:3px solid rgba(38,99,235,0.25);box-shadow:0 0 30px rgba(38,99,235,0.2)}
+      @media(max-width:900px){.photo-wrap{max-width:240px}}
+      @media(max-width:520px){.photo-wrap{max-width:200px}}
+      .ring{box-shadow:inset 0 0 0 2px rgba(255,255,255,0.06),0 0 0 2px rgba(38,99,235,0.25)}
+      .tech-orbit{position:absolute;inset:-14px;list-style:none;margin:0;padding:0;animation:orbitSpin 22s linear infinite;pointer-events:none}
+      .tech-orbit li{position:absolute;top:50%;left:50%;width:28px;height:28px;border-radius:999px;background:rgba(13,23,42,0.85);border:1px solid rgba(59,130,246,0.25);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+      .tech-orbit li i{font-size:16px}
+      .tech-orbit .t-java{transform:rotate(0deg) translate(110px) rotate(0deg)}
+      .tech-orbit .t-react{transform:rotate(90deg) translate(110px) rotate(-90deg)}
+      .tech-orbit .t-spring{transform:rotate(180deg) translate(110px) rotate(-180deg)}
+      .tech-orbit .t-stm{transform:rotate(270deg) translate(110px) rotate(-270deg)}
+      @media(max-width:900px){
+        .tech-orbit li{width:24px;height:24px}
+        .tech-orbit .t-java{transform:rotate(0deg) translate(82px) rotate(0deg)}
+        .tech-orbit .t-react{transform:rotate(90deg) translate(82px) rotate(-90deg)}
+        .tech-orbit .t-spring{transform:rotate(180deg) translate(82px) rotate(-180deg)}
+        .tech-orbit .t-stm{transform:rotate(270deg) translate(82px) rotate(-270deg)}
+      }
+      @keyframes orbitSpin{to{transform:rotate(360deg)}}
+
+      /* ensure hero photo scales to container */
+      .hero-photo{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
+
+      /* Hide decorative glows on small screens to reduce clutter */
+      @media(max-width:900px){ .glare,.blob,.dots,.petals{display:none!important} }
+
+      /* Global animated tech background */
+      .tech-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+        radial-gradient(900px 420px at 14% -10%,rgba(38,99,235,0.14),transparent 60%),
+        radial-gradient(700px 320px at 86% 0%,rgba(99,102,241,0.12),transparent 60%),
+        linear-gradient(180deg,#0a1428 0%,#0a1428 100%)}
+      .tech-bg::before{content:"";position:absolute;inset:0;background:
+        repeating-linear-gradient(0deg,rgba(255,255,255,0.035) 0 1px,transparent 1px 80px),
+        repeating-linear-gradient(90deg,rgba(255,255,255,0.035) 0 1px,transparent 1px 80px);
+        opacity:.35;mix-blend-mode:screen;animation:gridPan 28s linear infinite}
+      @keyframes gridPan{0%{background-position:0 0,0 0}100%{background-position:0 80px,80px 0}}
+    </style>
   </head>
   <body>
     <header class="navbar">
       <h1 class="logo">Surya Murugesan</h1>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
       <nav>
-        <ul class="nav-links">
+        <ul class="nav-links" id="primary-menu">
           <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
+    <div class="tech-bg" aria-hidden="true"></div>
 
-    <section class="hero">
-      <div class="intro">
-        <div class="badge">
-          🎓 Fresh Graduate • Seeking Entry-Level Opportunities
-        </div>
-        <h2>Hi, I'm <span class="highlight">Surya</span></h2>
-        <h3>
-          Software & Embedded Systems <span class="blue-text">Developer</span>
-        </h3>
-        <p>
-          Passionate about building
-          <span class="bold-blue">innovative software</span> and
-          <span class="bold-blue">embedded solutions</span>. Fresh graduate
-          eager to apply my technical skills and academic knowledge to solve
-          real-world challenges.
-        </p>
-        <div class="tech-stack">
-          <h4>⚙ Core Technologies</h4>
-          <div class="badges">
-            <span class="badge-orange">Java</span>
-            <span class="badge-blue">Embedded C</span>
-            <span class="badge-cyan">React</span>
-            <span class="badge-green">Spring Boot</span>
-            <span class="badge-purple">STM32</span>
+    <!-- Hero (Redesigned) -->
+    <section class="hero hero-large">
+      <div class="hero-card">
+        <div class="hero-left">
+          <!-- <div class="top-badge" aria-label="Brand">Surya.dev</div> -->          
+          <h2 class="hero-name">Surya Murugesan</h2>          
+          <h4 class="hero-headline" aria-label="Roles">Software & Embedded System Engineer</h4>
+          <!-- <h2 class="hero-sub">I build reliable, production‑ready systems across web and embedded.</h2> -->
+          <p class="hero-desc">Java, Spring Boot, React, Embedded C, STM32, IoT — focused on performance, clean code, and measurable results.</p>
+          <div class="core-tech" aria-label="Core technologies">
+            <span class="pill pill-orange">Java</span>
+            <span class="pill pill-blue">Embedded C</span>
+            <span class="pill pill-cyan">React</span>
+            <span class="pill pill-green">Spring Boot</span>
+            <span class="pill pill-purple">STM32</span>
+          </div>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn primary contact-btn">📧 Contact Me</a>
+            <a href="SURYAM_SOFTWARE_ENGINEER.pdf" class="btn outline resume-btn" download>📄 Resume</a>
           </div>
         </div>
-        <a href="#contact" class="contact-button">📧 Contact Me</a>
-      </div>
-      <div class="profile">
-        <div class="image-container">
-          <img src="profile.jpg" alt="Surya Murugesan" />
-          <span class="fresh-tag">Fresh<br />Graduate</span>
-          <span class="projects-tag">10+<br />Projects Built</span>
+        <div class="hero-right">
+          <div class="illustration">
+            <div class="floating-panel enhanced-photo">
+              <div class="photo-wrap">
+                <img class="hero-photo" src="profile.jpg" alt="Surya Murugesan" />
+                <span class="ring" aria-hidden="true"></span>
+                <ul class="tech-orbit" aria-hidden="true">
+                  <li class="t-java"><i class="devicon-java-plain colored"></i></li>
+                  <li class="t-react"><i class="devicon-react-original colored"></i></li>
+                  <li class="t-spring"><i class="devicon-spring-plain colored"></i></li>
+                  <li class="t-stm"><i class="devicon-c-plain colored"></i></li>
+                </ul>
+                <span class="glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="blob blob-a" aria-hidden="true"></div>
+            <div class="blob blob-b" aria-hidden="true"></div>
+            <div class="dots" aria-hidden="true"></div>
+            <div class="petals" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>
-        A passionate technology enthusiast with a strong foundation in software
-        development and embedded systems, continuously learning and growing in
-        the field.
-      </p>
-      <h3>Personal Journey</h3>
-      <p>
-        I am a dedicated and passionate software developer currently pursuing my
-        Master of Computer Applications... (continued)
-      </p>
-      <h3>Educational Background</h3>
-      <ul>
-        <li>
-          <strong>Master of Computer Applications</strong> – Rathinam Technical
-          Campus (May 2025)
-        </li>
-        <li>
-          <strong>Bachelor of Computer Applications</strong> – Sri Kaliswari
-          College (Jul 2022)
-        </li>
-      </ul>
-      <h3>Core Strengths</h3>
-      <ul>
-        <li>
-          <strong>Original Thinking</strong> – Innovative problem-solving with
-          creative approaches
-        </li>
-        <li>
-          <strong>Team Collaboration</strong> – Effective communication and
-          leadership
-        </li>
-        <li>
-          <strong>Scientific Approach</strong> – Methodical analysis and
-          decision-making
-        </li>
-      </ul>
+    <!-- Skills band between hero and about -->
+    <section class="skills-band">
+      <div class="skills-band-inner">
+        <div class="skills-marquee">
+          <div class="skills-track">
+            <span class="sb-item sb-java"><i class="devicon-java-plain colored"></i><em>Java</em></span>
+            <span class="sb-item sb-spring"><i class="devicon-spring-plain colored"></i><em>Spring Boot</em></span>
+            <span class="sb-item sb-react"><i class="devicon-react-original colored"></i><em>React</em></span>
+            <span class="sb-item sb-mysql"><i class="devicon-mysql-plain colored"></i><em>MySQL</em></span>
+            <span class="sb-item sb-postgres"><i class="devicon-postgresql-plain colored"></i><em>PostgreSQL</em></span>
+            <span class="sb-item sb-mongodb"><i class="devicon-mongodb-plain colored"></i><em>MongoDB</em></span>
+            <span class="sb-item sb-rest"><i class="devicon-nodejs-plain colored"></i><em>REST API</em></span>
+            <span class="sb-item sb-git"><i class="devicon-git-plain colored"></i><em>Git</em></span>
+            <span class="sb-item sb-github"><i class="devicon-github-original"></i><em>GitHub</em></span>
+            <span class="sb-item sb-linux"><i class="devicon-linux-plain"></i><em>Linux</em></span>
+            <span class="sb-item sb-windows"><i class="devicon-windows8-original colored"></i><em>Windows</em></span>
+          </div>
+          <div class="skills-track" aria-hidden="true">
+            <span class="sb-item sb-java"><i class="devicon-java-plain colored"></i><em>Java</em></span>
+            <span class="sb-item sb-spring"><i class="devicon-spring-plain colored"></i><em>Spring Boot</em></span>
+            <span class="sb-item sb-react"><i class="devicon-react-original colored"></i><em>React</em></span>
+            <span class="sb-item sb-mysql"><i class="devicon-mysql-plain colored"></i><em>MySQL</em></span>
+            <span class="sb-item sb-postgres"><i class="devicon-postgresql-plain colored"></i><em>PostgreSQL</em></span>
+            <span class="sb-item sb-mongodb"><i class="devicon-mongodb-plain colored"></i><em>MongoDB</em></span>
+            <span class="sb-item sb-rest"><i class="devicon-nodejs-plain colored"></i><em>REST API</em></span>
+            <span class="sb-item sb-git"><i class="devicon-git-plain colored"></i><em>Git</em></span>
+            <span class="sb-item sb-github"><i class="devicon-github-original"></i><em>GitHub</em></span>
+            <span class="sb-item sb-linux"><i class="devicon-linux-plain"></i><em>Linux</em></span>
+            <span class="sb-item sb-windows"><i class="devicon-windows8-original colored"></i><em>Windows</em></span>
+          </div>
+        </div>
+      </div>
+    <style>
+        /* Adaptive chip colors for skills-band
+           - Default tuned for dark backgrounds
+           - Add class "light" to .skills-band for light backgrounds */
+        .skills-band-inner { color: #e6eeff; }
+        .skills-band .sb-item {
+          background: rgba(255,255,255,0.12);
+          color: inherit;
+          border: 1px solid rgba(255,255,255,0.22);
+          box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+        .skills-band .sb-item i { color: currentColor !important; }
+        .skills-band .sb-item em { color: inherit; }
+        /* Optional light mode for skills-band background
+           Usage: <section class="skills-band light"> ... */
+        .skills-band.light .sb-item {
+          background: rgba(13,23,42,0.06);
+          color: #0b2545;
+          border-color: rgba(13,23,42,0.2);
+          box-shadow: 0 6px 16px rgba(13,23,42,0.12);
+        }
+        .skills-band.light .sb-item i { color: currentColor !important; }
+      </style>
+      <style>
+      /* Brand color chips for skills-band */
+      .skills-band .sb-item.sb-java{background:#ffe3c2;color:#7a3e00;border-color:#f1bf86}
+      .skills-band .sb-item.sb-spring{background:#d8f8df;color:#0d855f;border-color:#b2edc5}
+      .skills-band .sb-item.sb-react{background:#d9f6ff;color:#007a8a;border-color:#b6ecf6}
+      .skills-band .sb-item.sb-mysql{background:#e8f2ff;color:#1f4bb5;border-color:#cfe3ff}
+      .skills-band .sb-item.sb-postgres{background:#e7efff;color:#2b5dab;border-color:#cad9ff}
+      .skills-band .sb-item.sb-mongodb{background:#e6ffe8;color:#0b7d37;border-color:#c8ffd1}
+      .skills-band .sb-item.sb-rest{background:#f1f5ff;color:#2b4c7e;border-color:#dee7ff}
+      .skills-band .sb-item.sb-git{background:#ffe0d6;color:#a33620;border-color:#ffc6b5}
+      .skills-band .sb-item.sb-github{background:#eaeef3;color:#24292e;border-color:#d5dbe3}
+      .skills-band .sb-item.sb-linux{background:#f3f4f6;color:#111827;border-color:#e5e7eb}
+      .skills-band .sb-item.sb-windows{background:#e6f2ff;color:#2563eb;border-color:#cfe4ff}
+      </style>
     </section>
 
-    <section id="experience" class="section">
-      <h2>Professional Experience</h2>
-      <h3>
-        Embedded System Engineer – Phytec Embedded Pvt. Ltd (Jul 2024 – Aug
-        2024)
-      </h3>
-      <p>
-        <strong>Project:</strong> Real-Time Industrial Energy Monitoring System
-      </p>
-      <ul>
-        <li>
-          Optimized FSM-based Modbus RTU protocol – 30% performance improvement
-        </li>
-        <li>
-          Integrated STM32F446RE, BLE33, USB485, LCD for real-time data
-          processing
-        </li>
-        <li>Published IoT data to ThingsBoard via MQTT</li>
-      </ul>
-      <h4>Technologies Used:</h4>
-      <p>
-        STM32F446RE, BLE33, USB485, Modbus RTU, MQTT, ThingsBoard, Embedded C,
-        IoT
-      </p>
+
+    <!-- Animated Stats + Showreel -->
+    <!-- Showreel Modal -->
+    <div id="showreel-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="Showreel Preview" />
+      </div>
+    </div>
+
+    <!-- Interactive Skills -->
+    <!-- <section class="skills-row">
+      <h3>Interactive Skills</h3>
+      <div class="skills">
+        <button class="skill active">Java</button>
+        <button class="skill">React</button>
+        <button class="skill">Spring Boot</button>
+        <button class="skill">Embedded C</button>
+        <button class="skill">SQL</button>
+        <button class="skill">Git</button>
+      </div>
+    </section> -->
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
+      <div class="about-grid one-col">
+        <div class="about-column">
+          <!-- Rewritten About: concise, personal, fresher-friendly -->
+          <p>I’m a hands‑on developer who enjoys building systems end‑to‑end—from STM32‑based devices and Modbus/BLE connectivity to Java/Spring Boot APIs and React frontends. I like turning requirements into robust, testable features and shipping work that users can rely on.</p>
+          <p>As a fresher, I focus on measurable outcomes: improving response times, reducing manual steps, and writing code that is clean and maintainable. I’m targeting roles as a Software Engineer or Embedded Systems Engineer where I can contribute to real products and grow with a strong engineering team.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="projects" class="section">
-      <h2>Featured Projects</h2>
+    <!-- Education Section (new) -->
+    <section id="education" class="section" aria-labelledby="edu-title">
+      <h2 id="edu-title">Education</h2>
+      <style>
+        .edu-timeline{position:relative;padding-left:22px}
+        .edu-timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,rgba(59,130,246,0.35),rgba(34,195,255,0.25));border-radius:1px}
+        .edu-item{position:relative;background:rgba(22,33,62,0.85);border:1px solid rgba(59,130,246,0.1);border-radius:12px;padding:14px 14px 10px 14px;margin:0 0 12px 0;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+        .edu-item::before{content:"";position:absolute;left:-16px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--primary-color);box-shadow:0 0 0 4px rgba(59,130,246,0.18)}
+        .edu-head{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+        .edu-degree{font-weight:900;color:#c7d2fe}
+        .edu-school{margin-left:auto;color:#cbd5e1;font-weight:800}
+        .edu-dates{color:#9fb0d0;font-weight:700}
+        .edu-sub{margin-top:6px;color:#cbd5e1}
+        .edu-points{margin-top:6px;padding-left:18px}
+      </style>
+      <div class="edu-timeline">
+        <article class="edu-item" aria-label="Postgraduate">
+          <div class="edu-head">
+            <span class="edu-degree">Master of Computer Applications (MCA)</span>
+            <span class="edu-school">Rathinam Technical Campus, Coimbatore</span>
+          </div>
+          <div class="edu-dates">2023 – 2025</div>
+          <div class="edu-sub">Key Learnings</div>
+          <ul class="edu-points">
+            <li>Embedded Systems & Embedded C</li>
+            <li>Software Engineering principles</li>
+            <li>Java and Spring Boot backend development</li>
+            <li>IoT systems and cloud integration</li>
+          </ul>
+        </article>
+        <article class="edu-item" aria-label="Undergraduate">
+          <div class="edu-head">
+            <span class="edu-degree">Bachelor of Computer Applications (BCA)</span>
+            <span class="edu-school">Sri Kaliswari College, Sivakasi</span>
+          </div>
+          <div class="edu-dates">2019 – 2022</div>
+          <div class="edu-sub">Key Learnings</div>
+          <ul class="edu-points">
+            <li>Operating Systems concepts</li>
+            <li>Data Structures and Algorithms</li>
+            <li>Programming fundamentals</li>
+            <li>Database basics and core CS foundations</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Grouped Skills Section -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <style>
+        .skills-grid-compact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+        .skill-box{background:rgba(22,33,62,0.85);border:1px solid rgba(59,130,246,0.1);border-radius:12px;padding:12px}
+        .skill-box h3{margin-bottom:8px;color:#c7d2fe;font-size:1rem;display:flex;align-items:center;gap:8px}
+        .skill-row{display:flex;justify-content:space-between;align-items:center;margin:6px 0;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.04)}
+        .skill-left{display:flex;align-items:center;gap:8px}
+        .skill-left i{font-size:18px}
+        .level{padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:900;border:1px solid rgba(59,130,246,0.2);color:#cbd5e1}
+      </style>
+      <div class="skills-grid-compact">
+        <div class="skill-box">
+          <!-- <h3>Backend</h3> -->
+          <h3><i class="devicon-java-plain colored" aria-hidden="true"></i> Backend</h3>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-java-plain colored" aria-hidden="true"></i>Java</span><span class="level">Advanced</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-spring-plain colored" aria-hidden="true"></i>Spring Boot</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-nodejs-plain colored" aria-hidden="true"></i>REST APIs</span><span class="level">Advanced</span></div>
+        </div>
+        <div class="skill-box">
+          <h3><i class="devicon-c-plain colored" aria-hidden="true"></i> Embedded Systems</h3>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-c-plain colored" aria-hidden="true"></i>Embedded C</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-embeddedc-plain" aria-hidden="true"></i>STM32</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-blender-original" aria-hidden="true"></i>Modbus RTU / BLE</span><span class="level">Beginner</span></div>
+        </div>
+        <div class="skill-box">
+          <h3><i class="devicon-amazonwebservices-plain colored" aria-hidden="true"></i> Cloud & IoT</h3>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-amazonwebservices-plain colored" aria-hidden="true"></i>ThingsBoard Cloud</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-docker-plain colored" aria-hidden="true"></i>MQTT</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-graphql-plain colored" aria-hidden="true"></i>IoT Data Visualization</span><span class="level">Intermediate</span></div>
+        </div>
+        <div class="skill-box">
+          <h3><i class="devicon-react-original colored" aria-hidden="true"></i> Frontend</h3>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-react-original colored" aria-hidden="true"></i>React</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-html5-plain colored" aria-hidden="true"></i>HTML/CSS</span><span class="level">Advanced</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-javascript-plain colored" aria-hidden="true"></i>JavaScript</span><span class="level">Intermediate</span></div>
+        </div>
+        <div class="skill-box">
+          <h3><i class="devicon-mysql-plain colored" aria-hidden="true"></i> Databases</h3>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-mysql-plain colored" aria-hidden="true"></i>MySQL</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-postgresql-plain colored" aria-hidden="true"></i>PostgreSQL</span><span class="level">Beginner</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-mongodb-plain colored" aria-hidden="true"></i>MongoDB</span><span class="level">Beginner</span></div>
+        </div>
+        <div class="skill-box">
+          <h3><i class="devicon-git-plain colored" aria-hidden="true"></i> Tools & OS</h3>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-git-plain colored" aria-hidden="true"></i>Git / GitHub</span><span class="level">Advanced</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-linux-plain" aria-hidden="true"></i>Linux</span><span class="level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-left"><i class="devicon-windows8-original colored" aria-hidden="true"></i>Windows</span><span class="level">Advanced</span></div>
+        </div>
+      </div>
+    </section>
+      </div>
+    </section>
+
+    <section id="experience" class="section" aria-labelledby="exp-title">
+      <h2 id="exp-title">Experience</h2>
+
+      <div class="exp-tabs" role="tablist" aria-label="Experience Tabs">
+        <button class="exp-tab active" role="tab" aria-selected="true" aria-controls="exp-list" id="tab-exp" data-target="exp-list">Experience</button>
+        <button class="exp-tab" role="tab" aria-selected="false" aria-controls="intern-list" id="tab-intern" data-target="intern-list">Internship</button>
+      </div>
+      <div class="exp-sep" aria-hidden="true"></div>
+
+      <div class="exp-panes">
+        <div id="exp-list" class="exp-pane active" role="tabpanel" aria-labelledby="tab-exp">
+          <div class="exp-timeline">
+            <article class="exp-item">
+              <header class="exp-item-header">
+                <div class="role">Trainee Embedded Software Engineer</div>
+                <div class="meta">
+                  <span class="company">Phytec Embedded Pvt Ltd</span>
+                  <span class="location">Bengaluru, India</span>
+                  <span class="dates">July 2025 – Present</span>
+                </div>
+              </header>
+              <ul class="exp-bullets">
+                <li>Built backend modules for a Smart City IoT platform using Java Spring Boot, improving real-time data handling by 30%.</li>
+                <li>Developed a Face Recognition Admin Portal (Spring Boot + React), enhancing data access and workflow efficiency by 40%.</li>
+                <li>Automated employee logs, live status, and Excel exports, reducing manual effort by 70%.</li>
+                <li>Optimized MySQL queries and REST APIs, improving system response time and reliability.</li>
+                <li>Collaborated with hardware and cloud teams to deliver end-to-end functionality.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div id="intern-list" class="exp-pane" role="tabpanel" aria-labelledby="tab-intern" hidden>
+          <div class="exp-timeline">
+            <article class="exp-item">
+              <header class="exp-item-header">
+                <div class="role">Embedded Systems Intern</div>
+                <div class="meta">
+                  <span class="company">Phytec Embedded Pvt. Ltd</span>
+                  <span class="location">Bengaluru, India</span>
+                  <span class="dates">Jul 2024 – Aug 2024</span>
+                </div>
+              </header>
+              <ul class="exp-bullets">
+                <li>Hands-on with STM32F446RE microcontroller: SPI, UART, GPIO, Timers, ADC, PWM; integrated LCDs, 7-segment displays, keypads, and sensors; built a Real-Time Industrial Energy Monitoring System using STM32F446RE, Modbus RTU, USB485, BLE33, and RuggedBoard A5D2X, enabling MQTT publishing to ThingsBoard.</li>
+                <li>Enhanced system performance by 30% via a finite-state-machine based Modbus RTU optimization, ensuring reliable real-time data transmission and monitoring.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .exp-tabs{display:flex;gap:10px;margin:4px 0 10px;}
+        .exp-tab{appearance:none;border:none;padding:10px 16px;border-radius:999px;font-weight:800;color:var(--text-secondary);background:rgba(59,130,246,0.12);cursor:pointer;transition:var(--transition)}
+        .exp-tab.active{color:#fff;background:linear-gradient(135deg,#6aa6ff,#2663eb);box-shadow:0 6px 20px rgba(38,99,235,0.25)}
+        .exp-sep{height:2px;background:linear-gradient(90deg,rgba(59,130,246,0.35),rgba(34,195,255,0.25));border-radius:1px;margin:8px 0 12px}
+        .exp-pane{animation:fadeInUp .4s ease both}
+      </style>
+
+      <script>
+        (function(){
+          const tabs = Array.from(document.querySelectorAll('.exp-tab'));
+          const panes = {
+            'exp-list': document.getElementById('exp-list'),
+            'intern-list': document.getElementById('intern-list')
+          };
+          tabs.forEach(btn => btn.addEventListener('click', () => {
+            tabs.forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+            btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+            Object.values(panes).forEach(p=>{ p.classList.remove('active'); p.hidden = true; });
+            const id = btn.getAttribute('data-target');
+            panes[id].hidden = false; panes[id].classList.add('active');
+          }));
+        })();
+      </script>
+
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title">Featured Projects</h2>
+      <style>
+        /* Featured project subtle emphasis */
+        .featured { outline: 2px solid rgba(59,130,246,0.25); }
+        .project-actions { display:flex; gap:10px; margin-top:10px; }
+        .btn-dark { background: rgba(22,33,62,0.85); color:#cbd5e1; border:1px solid rgba(59,130,246,0.18); padding:8px 12px; border-radius:10px; text-decoration:none; font-weight:800; }
+        .btn-dark:hover { background: rgba(28,42,76,0.9); }
+        .project-points { padding-left: 18px; }
+        .badge-featured { display:inline-block; margin-bottom:8px; padding:6px 10px; font-weight:900; border-radius:999px; background:linear-gradient(135deg,#6aa6ff,#2663eb); color:#fff; font-size:0.8rem; }
+      </style>
       <div class="projects-grid">
-        <div class="project-card">
+        <!-- Featured Project -->
+        <div class="project-card featured" aria-label="Featured project">
           <div class="project-image">
             <img
               src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop"
-              alt="E-Commerce Website"
+              alt="E-Commerce Platform UI preview"
             />
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="#" class="project-link">📁 GitHub</a>
-              </div>
-            </div>
           </div>
           <div class="project-content">
-            <h3>E-Commerce Website Development</h3>
-            <p>
-              Full-stack e-commerce platform with modern UI and robust backend
-              architecture.
-            </p>
-            <ul>
-              <li>
-                30% improvement in load speed, 20% increase in order efficiency
-              </li>
-              <li>Secure payment integration and user authentication</li>
+            <span class="badge-featured">Featured</span>
+            <h3>E‑Commerce Platform</h3>
+            <ul class="project-points">
+              <li><strong>Problem:</strong> Slow pages and manual order processing hurt conversions.</li>
+              <li><strong>Solution:</strong> Built a full‑stack platform with optimized pages, caching, and secure checkout.</li>
+              <li><strong>Technologies:</strong> Java, Spring Boot, React, MySQL</li>
+              <li><strong>Impact:</strong> 30% faster loads, 20% higher order efficiency, secure auth & payments.</li>
             </ul>
-            <div class="project-tech">
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Spring Boot</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">MySQL</span>
+            <div class="project-actions">
+              <a class="btn-dark" href="#" aria-label="View code for E-Commerce">View Code</a>
             </div>
           </div>
         </div>
@@ -181,29 +513,19 @@
           <div class="project-image">
             <img
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop"
-              alt="Industrial Energy Monitoring"
+              alt="Industrial Energy Monitoring UI"
             />
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="#" class="project-link">📁 GitHub</a>
-              </div>
-            </div>
           </div>
           <div class="project-content">
-            <h3>Industrial Energy Monitoring System</h3>
-            <p>
-              IoT-based real-time energy monitoring system for industrial
-              applications.
-            </p>
-            <ul>
-              <li>Real-time monitoring with Bluetooth connectivity</li>
-              <li>Cloud data storage and analytics dashboard</li>
+            <h3>Industrial Energy Monitoring</h3>
+            <ul class="project-points">
+              <li><strong>Problem:</strong> Lack of real‑time visibility into energy usage on the shop floor.</li>
+              <li><strong>Solution:</strong> STM32‑based data acquisition with Modbus RTU, BLE, and MQTT to cloud.</li>
+              <li><strong>Technologies:</strong> STM32F446RE, Modbus RTU, USB485, BLE33, ThingsBoard</li>
+              <li><strong>Impact:</strong> Real‑time monitoring, actionable dashboards, reduced manual data collection.</li>
             </ul>
-            <div class="project-tech">
-              <span class="tech-tag">STM32F446RE</span>
-              <span class="tech-tag">Modbus RTU</span>
-              <span class="tech-tag">Bluetooth</span>
-              <span class="tech-tag">IoT</span>
+            <div class="project-actions">
+              <a class="btn-dark" href="#" aria-label="View code for Energy Monitoring">View Code</a>
             </div>
           </div>
         </div>
@@ -212,42 +534,33 @@
           <div class="project-image">
             <img
               src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=250&fit=crop"
-              alt="Coal Mine Safety System"
+              alt="Coal Mine Safety System UI"
             />
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="#" class="project-link">📁 GitHub</a>
-              </div>
-            </div>
           </div>
           <div class="project-content">
             <h3>Coal Mine Safety System</h3>
-            <p>
-              Advanced safety monitoring system for coal mine workers with
-              hazard detection.
-            </p>
-            <ul>
-              <li>Hazard detection and emergency alert system</li>
-              <li>GPS location tracking and communication module</li>
+            <ul class="project-points">
+              <li><strong>Problem:</strong> Worker safety risks due to delayed hazard detection.</li>
+              <li><strong>Solution:</strong> Embedded sensor network with alerts, GPS tracking, and on‑device logic.</li>
+              <li><strong>Technologies:</strong> Embedded C, Sensors, GPS, IoT</li>
+              <li><strong>Impact:</strong> Faster hazard response and improved situational awareness.</li>
             </ul>
-            <div class="project-tech">
-              <span class="tech-tag">Embedded C</span>
-              <span class="tech-tag">GPS</span>
-              <span class="tech-tag">Sensors</span>
-              <span class="tech-tag">IoT</span>
+            <div class="project-actions">
+              <a class="btn-dark" href="#" aria-label="View code for Coal Mine Safety">View Code</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact Me</h2>
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Me</h2>
       <p>
         Feel free to reach out to me via email or connect on LinkedIn. I am
         always open to discussing new projects, opportunities, or
         collaborations.
       </p>
+      <p class="contact-note" aria-live="polite">I typically reply within 24–48 hours.</p>
       <div class="contact-info">
         <p>
           <strong>Email:</strong>
@@ -279,7 +592,7 @@
         </p>
         <p><strong>Location:</strong> Coimbatore, Tamil Nadu, India</p>
       </div>
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" aria-label="Contact form">
         <label for="name">Full Name</label>
         <input
           type="text"
@@ -304,9 +617,109 @@
           required
         ></textarea>
         <button type="submit">Send Message</button>
+        <div id="contactStatus" role="status" aria-live="polite" style="margin-top:8px;color:#cbd5e1;"></div>
       </form>
     </section>
     <script>
+      // Navbar: add shadow on scroll and update active link based on section in view
+      (function(){
+        const navbar = document.querySelector('.navbar');
+        const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+        const navToggle = document.querySelector('.nav-toggle');
+        const primaryMenu = document.getElementById('primary-menu');
+        if (navToggle && primaryMenu){
+          // Do not attach a second toggle handler here — the initNav() script adds the
+          // primary open/close behavior and manages inline display for mobile/tablet.
+          // We keep nav link click closure to ensure links close the menu in all cases.
+          navToggle.setAttribute('aria-expanded','false');
+          navLinks.forEach(a => a.addEventListener('click', (e)=>{
+            e.preventDefault();
+            navbar.classList.remove('open');
+            navToggle.setAttribute('aria-expanded','false');
+            const menu = document.querySelector('.navbar nav .nav-links');
+            if (menu) menu.style.setProperty('display', 'none', 'important');
+            const href = a.getAttribute('href');
+            if (href && href.startsWith('#')) {
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({behavior: 'smooth', block: 'start'});
+              }
+            }
+          }));
+        }
+
+        function onScroll(){
+          if (window.scrollY > 8) navbar.classList.add('scrolled');
+          else navbar.classList.remove('scrolled');
+        }
+        window.addEventListener('scroll', onScroll, {passive: true});
+        onScroll();
+
+        // Scroll spy
+        const sections = navLinks
+          .map(a => ({ id: a.getAttribute('href').slice(1), el: null, a }))
+          .filter(x => x.id);
+        sections.forEach(s => s.el = document.getElementById(s.id));
+        const obs = new IntersectionObserver((entries)=>{
+          entries.forEach(entry => {
+            const id = entry.target.id;
+            if (entry.isIntersecting){
+              navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+            }
+          });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+        sections.forEach(s => s.el && obs.observe(s.el));
+      })();
+
+      // Interactive skills: toggle active state
+      document.querySelectorAll('.skill').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          document.querySelectorAll('.skill').forEach(function(b){ b.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+
+      // Animated stats: animate when visible
+      (function(){
+        function animateStats(){
+          const stats = document.querySelectorAll('.stat-number');
+          stats.forEach(span => {
+            const target = parseInt(span.getAttribute('data-target')) || 0;
+            if (!target) return;
+            const duration = 1400;
+            const start = performance.now();
+            requestAnimationFrame(function update(now){
+              let elapsed = now - start;
+              let progress = Math.min(elapsed/duration, 1);
+              let current = Math.floor(target * progress);
+              if (target >= 1000){
+                span.textContent = current >= 1000 ? Math.floor(current/1000) + 'K' : current;
+              } else {
+                span.textContent = current;
+              }
+              if (progress < 1) requestAnimationFrame(update);
+              else {
+                span.textContent = target >= 1000 ? Math.floor(target/1000) + 'K+' : target;
+              }
+            });
+          });
+        }
+
+        let started = false;
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting && !started){
+              started = true;
+              animateStats();
+              obs.disconnect();
+            }
+          });
+        }, {threshold: 0.4});
+
+        const el = document.querySelector('.stats-showreel .stats');
+        if (el) obs.observe(el);
+      })();
+
       document
         .getElementById("contactForm")
         .addEventListener("submit", function (event) {
@@ -323,15 +736,106 @@
 
           emailjs.send(serviceID, templateID, templateParams, publicKey).then(
             () => {
-              alert("Message sent successfully!");
+              const s = document.getElementById('contactStatus');
+              if (s){ s.textContent = 'Thanks! Your message was sent. I typically reply within 24–48 hours.'; }
               this.reset();
             },
             (err) => {
-              alert("Failed to send message. Please try again later.");
+              const s = document.getElementById('contactStatus');
+              if (s){ s.textContent = 'Sorry, sending failed. Please try again later or email me directly.'; }
               console.error("EmailJS error:", err);
             }
           );
         });
+    </script>
+
+    <script>
+      (function(){
+        function initNav(){
+          const btn = document.querySelector('.nav-toggle');
+          const navbar = document.querySelector('.navbar');
+          const menu = document.getElementById('primary-menu');
+          if(!btn || !navbar || !menu) return;
+
+          function removeInlineFallback(){
+            menu.style.removeProperty('display');
+            menu.style.removeProperty('flex-direction');
+            menu.style.removeProperty('opacity');
+          }
+
+          function closeMenu(){
+            navbar.classList.remove('open');
+            navbar.classList.remove('nav-debug');
+            btn.setAttribute('aria-expanded','false');
+            btn.setAttribute('aria-label','Open navigation');
+            // debug
+            console.log('nav: closeMenu()');
+            // remove inline fallback styles (use !important to override CSS)
+            menu.style.setProperty('display','none','important');
+            menu.style.setProperty('flex-direction','row','important');
+            menu.classList.remove('nav-open-debug');
+          }
+
+          function openMenu(){
+            navbar.classList.add('open');
+            navbar.classList.add('nav-debug');
+            btn.setAttribute('aria-expanded','true');
+            btn.setAttribute('aria-label','Close navigation');
+            // debug
+            console.log('nav: openMenu()');
+            // fallback inline style for small screens (ensures visibility if CSS specificity blocks)
+            if(window.innerWidth <= 1024){
+              menu.style.setProperty('display','flex','important');
+              menu.style.setProperty('flex-direction','column','important');
+              menu.style.setProperty('opacity','1','important');
+              // debug helper to show menu boundaries if still hidden
+              menu.classList.add('nav-open-debug');
+            }
+          }
+
+          function toggleMenu(e){
+            e && e.stopPropagation();
+            if(navbar.classList.contains('open')){
+              closeMenu();
+            } else {
+              openMenu();
+            }
+          }
+
+          // bind events
+          btn.addEventListener('click', toggleMenu);
+          // Keep the nav open until the user explicitly toggles it. Previously we closed
+          // the menu on any outside click which caused accidental hiding while the user
+          // interacts with the page. We now only close on explicit actions (toggle, Escape,
+          // or when resizing to desktop).
+          // (Removed outside-click close handler to prevent accidental hiding.)
+
+          // Allow closing the menu with Escape for convenience
+          document.addEventListener('keydown', function(e){
+            if (e.key === 'Escape') closeMenu();
+          });
+          /* Keep the nav open when a link is clicked so users can jump between sections
+             without reopening the menu. If you want to close only for specific links,
+             add a class 'close-on-click' to those <a> elements and I can wire that behavior. */
+          // menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+          window.addEventListener('resize', function(){ if(window.innerWidth > 1024) { closeMenu(); removeInlineFallback(); } });
+
+          // initial accessible state
+          btn.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-label','Open navigation');
+
+          // ensure mobile gets hidden initially
+          if(window.innerWidth <= 1024){
+            menu.style.setProperty('display','none','important');
+          }
+        }
+
+        if(document.readyState === 'loading'){
+          document.addEventListener('DOMContentLoaded', initNav);
+        } else {
+          initNav();
+        }
+      })();
     </script>
   </body>
 </html>
